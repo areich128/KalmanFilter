@@ -18,7 +18,7 @@ $estimated = predicted * \beta (\frac{measurement_{n} - predicted}{\Delta t})$
 
 - $estimated$ represents the Kalman filter's guess on the state.
 - $predicted$ is given by the state prediction made in the previous time step.
-- $\alpha$ is the Kalman gain. If the measurement accuracy is high, alpha should approach 1, as this will make the measurement influence the equation more. If the measurement accuracy is low, alpha should approach 0 for the same reason.
+- $\alpha$ is the Kalman gain. If the measurement accuracy is high, alpha/beta should approach 1, as this will make the measurement influence the equation more. If the measurement accuracy is low, alpha/beta should approach 0 for the same reason.
 - $measurement_n$ is the measurement taken by the sensor at time n. In my code, this is represented by a time series array.
 
 2. State Extrapolation Equation:

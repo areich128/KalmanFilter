@@ -1,26 +1,36 @@
 #include <iostream>
 #include <cmath>
-#include "Ops/ops.hpp"
+#include "Ops/linear_univariable.hpp"
+#include "Ops/dynamic_univariable.hpp"
 
 using namespace std;
 
 int main (){
     int n;
-    float init_guess;
+    float init_velo_guess;
+    float init_pos_guess;
 
     cout << "Number of measurements: " << endl;
     cin >> n;
 
-    float measurements[n];
+    float pos_meas[n], velo_meas[n];
 
-    cout << "Enter " << n << " measurements: " << endl;
+    cout << "Enter " << n << " pos measurements: " << endl;
     for (int i = 0; i < n; ++i){
-        scanf("%f", &measurements[i]);
+        scanf("%f", &pos_meas[i]);
     }
-    cout << "Initial guess: " << endl;
-    cin >> init_guess;
+    cout << "Initial pos guess: " << endl;
+    cin >> init_pos_guess;
 
-    cout << "State estimate after " << n << " iterations is " << linearKalman(init_guess, measurements, float(n)) << endl;
+    cout << "Enter " << n << " velo measurements: " << endl;
+    for (int i = 0; i < n; ++i){
+        scanf("%f", &velo_meas[i]);
+    }
+    cout << "Initial velo guess: " << endl;
+    cin >> init_velo_guess;
+
+    cout << "Position estimate after " << n << " iterations is " << (dynamicKalman(init_pos_guess, init_velo_guess, pos_meas, velo_meas, n))[1] << endl;
+    cout << "Velocity estimate after " << n << " iterations is " << (dynamicKalman(init_pos_guess, init_velo_guess, pos_meas, velo_meas, n))[2] << endl;
 
     return 0;
 }
