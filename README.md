@@ -52,5 +52,5 @@ This filter is very useful if the system is relatively simple, and the equations
 
 
 Sources: 
-[michaelscheinfeild](#https://medium.com/@michaelscheinfeild/alpha-beta-gamma-and-kalman-filter-bfd21041d940),
-[Kalman Filter from the Ground Up: Alex Becker](#https://www.kalmanfilter.net/kalman1d.html), 
+[michaelscheinfeild](https://medium.com/@michaelscheinfeild/alpha-beta-gamma-and-kalman-filter-bfd21041d940),
+[Kalman Filter from the Ground Up: Alex Becker](https://www.kalmanfilter.net/kalman1d.html), 
