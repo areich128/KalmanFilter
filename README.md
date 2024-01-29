@@ -17,21 +17,21 @@ The point of these equations are to update our estimate of the true quantity con
 
 **For POSITION:**
 
-$estimated = predicted * \alpha (measurement_{n} - predicted)$
+$position_{est} = position_{pred} * \alpha (measurement_{n} - position_{pred})$
 
 **For VELOCITY:**
 
-$estimated = predicted * \beta (\frac{measurement_{n} - predicted}{\Delta t})$
+$velocity_{est} = velocity_{pred} * \beta (\frac{measurement_{n} - position_{pred}}{\Delta t})$
 
 **For ACCELERATION:**
 
-$estimated = predicted * \gamma (\frac{measurement_n - predicted}{0.5 (\Delta t)^2})$
+$acceleration_{est} = acceleration_{pred} * \gamma (\frac{measurement_n - position_{pred}}{0.5 (\Delta t)^2})$
 
 
-- $estimated$ represents the Kalman filter's guess on the state.
-- $predicted$ is given by the state prediction made in the previous time step.
-- $\alpha$ is the gain. If the measurement accuracy is high, alpha/beta should approach 1, as this will make the measurement influence the equation more. If the measurement accuracy is low, alpha/beta should approach 0 for the same reason.
-- $measurement_n$ is the measurement taken by the sensor at time n. In my code, this is represented by a time series array.
+- $example_{est}$ represents the Kalman filter's guess on the state.
+- $example_{pred}$ is given by the state prediction made in the previous time step.
+- $\alpha$, $\beta$, and $\gamma$ are the gains. If the measurement accuracy is high, alpha/beta should approach 1, as this will make the measurement influence the equation more. If the measurement accuracy is low, alpha/beta should approach 0 for the same reason.
+- $measurement_n$ is the position measurement taken by the sensor at time n. In my code, this is represented by a time series array.
 
 ### 2. State Extrapolation Equation:
 
