@@ -10,7 +10,7 @@ using namespace std;
 //STATE UPDATE EQUATION
 //alpha = kalman gain. if alpha = 1, then sensor accuracy is presumed to be high. if alpha = 0, accuracy is low.
 float currentPosEst (float predicted_state, float alpha, float meas){
-    float current_state = predicted_state - (alpha * (predicted_state - meas));
+    float current_state = predicted_state + (alpha * (meas - predicted_state));
     return current_state;
 }
 

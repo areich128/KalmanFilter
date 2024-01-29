@@ -23,14 +23,10 @@ int main (){
     cout << "Initial pos guess: " << endl;
     cin >> init_pos_guess;
 
-    cout << "Enter " << n << " velo measurements: " << endl;
-    for (int i = 0; i < n; ++i){
-        scanf("%f", &velo_meas[i]);
-    }
     cout << "Initial velo guess: " << endl;
     cin >> init_velo_guess;
 
-    std::vector<float> state_vector = dynamicKalman(init_pos_guess, init_velo_guess, pos_meas, velo_meas, n);
+    std::vector<float> state_vector = dynamicKalman(init_pos_guess, init_velo_guess, pos_meas, n);
 
     cout << "Position estimate after " << n << " iterations is " << state_vector[1] << " " << endl;
     cout << "Velocity estimate after " << n << " iterations is " << state_vector[2] << " " << endl;
