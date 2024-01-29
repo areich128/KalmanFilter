@@ -46,5 +46,11 @@ $a_f = a_i$ (assuming constant acceleration)
 where $\Delta t$ is the sampling period.
 
 
+This filter is very useful if the system is relatively simple, and the equations governing the system dynamics are known. However, most real life systems have more unpredictability and extremely complicated equations, which is why the Kalman filter is widely used.
 
 
+
+
+Sources: 
+[michaelscheinfeild](#https://medium.com/@michaelscheinfeild/alpha-beta-gamma-and-kalman-filter-bfd21041d940),
+[Kalman Filter from the Ground Up: Alex Becker](#https://www.kalmanfilter.net/kalman1d.html), 
