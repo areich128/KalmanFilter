@@ -9,11 +9,11 @@ There are 5 main equations for the Kalman filter:
 
 **For POSITION:**
 
-$ estimated = predicted * \alpha (measurement_{n} - predicted)$
+$estimated = predicted * \alpha (measurement_{n} - predicted)$
 
 **For VELOCITY:**
 
-$ estimated = predicted * \beta (\frac{measurement_{n} - predicted}{\Delta t})$
+$estimated = predicted * \beta (\frac{measurement_{n} - predicted}{\Delta t})$
 
 
 - $estimated$ represents the Kalman filter's guess on the state.
