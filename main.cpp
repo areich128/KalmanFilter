@@ -10,6 +10,8 @@ int main (){
     int n;
     float init_velo_guess;
     float init_pos_guess;
+    float init_acc_guess;
+    float dt;
 
     cout << "Number of measurements: " << endl;
     cin >> n;
@@ -26,7 +28,13 @@ int main (){
     cout << "Initial velo guess: " << endl;
     cin >> init_velo_guess;
 
-    std::vector<float> state_vector = dynamicKalman(init_pos_guess, init_velo_guess, pos_meas, n);
+    cout << "Initial acceleration guess: " << endl;
+    cin >> init_acc_guess;
+
+    cout << "Length of time step: " << endl;
+    cin >> dt;
+
+    std::vector<float> state_vector = dynamicKalman(init_pos_guess, init_velo_guess, init_acc_guess, pos_meas, n, dt);
 
     cout << "Position estimate after " << n << " iterations is " << state_vector[1] << " " << endl;
     cout << "Velocity estimate after " << n << " iterations is " << state_vector[2] << " " << endl;
