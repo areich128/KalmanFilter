@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <vector>
 #include "Ops/linear_univariable.hpp"
 #include "Ops/dynamic_univariable.hpp"
 
@@ -29,8 +30,10 @@ int main (){
     cout << "Initial velo guess: " << endl;
     cin >> init_velo_guess;
 
-    cout << "Position estimate after " << n << " iterations is " << (dynamicKalman(init_pos_guess, init_velo_guess, pos_meas, velo_meas, n))[1] << endl;
-    cout << "Velocity estimate after " << n << " iterations is " << (dynamicKalman(init_pos_guess, init_velo_guess, pos_meas, velo_meas, n))[2] << endl;
+    std::vector<float> state_vector = dynamicKalman(init_pos_guess, init_velo_guess, pos_meas, velo_meas, n);
+
+    cout << "Position estimate after " << n << " iterations is " << state_vector[1] << " " << endl;
+    cout << "Velocity estimate after " << n << " iterations is " << state_vector[2] << " " << endl;
 
     return 0;
 }
