@@ -1,8 +1,11 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
-#include "Ops/linear_univariable.hpp"
-#include "Ops/dynamic_univariable.hpp"
+
+#include "ABG_filter/1d_kinematic.hpp"
+#include "ABG_filter/static_estimation.hpp"
+#include "KalmanFilter/kalmanFilter.hpp"
+#include "KalmanFilter/stat_dict.hpp"
 
 using namespace std;
 

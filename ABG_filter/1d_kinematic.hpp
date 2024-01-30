@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+#include "static_estimation.hpp"
 
 using namespace std;
 
