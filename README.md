@@ -48,8 +48,11 @@ where $\Delta t$ is the sampling period.
 
 This filter is very useful if the system is relatively simple, and the equations governing the system dynamics are known. However, most real life systems have more unpredictability and extremely complicated equations, which is why the Kalman filter is widely used.
 
+## The Kalman Filter
 
+This filter uses the state update equations but also accounts for the variance in the various measurements. This allows the algorithm to converge close to the true value.
 
+It does this by not only predicting the various system states (position, velocity, acceleration etc.), but also the *VARIANCE* of those system states. In other words, it uses the measured states and respective variances, as well as the *estimated* states and variances.
 
 Sources: 
 [michaelscheinfeild](https://medium.com/@michaelscheinfeild/alpha-beta-gamma-and-kalman-filter-bfd21041d940),

@@ -25,8 +25,8 @@ float stdDev(float variance){
     return std_dev;
 }
 
-float kalmanGain(float extrap_est_variance, float meas_variance){
-    float Kn = extrap_est_variance / (extrap_est_variance + meas_variance);
+float kalmanGain(float pred_variance, float meas_variance){
+    float Kn = pred_variance / (pred_variance + meas_variance);
     return Kn;
 }
 
