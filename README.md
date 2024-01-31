@@ -54,6 +54,44 @@ This filter uses the state update equations but also accounts for the variance i
 
 It does this by not only predicting the various system states (position, velocity, acceleration etc.), but also the *VARIANCE* of those system states. In other words, it uses the measured states and respective variances, as well as the *estimated* states and variances.
 
+### Version 1: Constant Dynamics With No Process Noise
+
+There are two types of noise that can affect measurements that the Kalman filter can account for. 
+- **Measurement Noise:** This is noise caused by the error in the measurement due to sensor inaccuracy.
+- **Process Noise:** This is noise caused by external impacts that change the physical state of the system. For example, if we are measuring the position of a plane, wind might create process noise.
+
+We still follow the general algorithm:
+
+0. Initialize
+1. Measure
+2. Update
+3. Predict
+
+and then loop over 1, 2, and 3 for all the data points in the set.
+
+We get the following 5 equations:
+
+#### State Update Equations:
+1. **State Equation:** 
+
+$x_{est} = x_{pred} + K_n (z_n - x_{pred})$
+
+2. **Covariance Update Equation:**
+
+$var = (1 - K_n) var_{pred}$
+
+3. **Kalman Gain Equation:**
+
+$K_n = \frac{var_{pred}}{var_{pred} + r_n}$
+
+#### State Prediction Equations:
+
+4. **State Extrapolation Equation:** This equation updates the estimate for the variable according to the system dynamics. In the examples here this is either constant or in accordance with simple kinematics.
+
+5. **Covariance Extrapolation Equation:** This equation does the same thing as the State Extrapolation Equation, but instead of updating the estimate for the state, it updates the estimate for the *covariance* of the estimated state.
+
+
+
 Sources: 
 [michaelscheinfeild](https://medium.com/@michaelscheinfeild/alpha-beta-gamma-and-kalman-filter-bfd21041d940),
 [Kalman Filter from the Ground Up: Alex Becker](https://www.kalmanfilter.net/kalman1d.html), 

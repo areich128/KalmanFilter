@@ -35,13 +35,17 @@ int main (){
     cout << "Initial pos guess: " << endl;
     cin >> init_pos_guess;
 
-    cout << "Initial variance guess: " << endl;
+    cout << "Initial guess variance: " << endl;
     cin >> init_var_guess;
+
+    float process_noise_var;
+    cout << "Process noise variance: " << endl;
+    cin >> process_noise_var;
 
     cout << "Length of time step: " << endl;
     cin >> dt;
 
-    std::vector<float> state_vector = kalmanAlgo(init_pos_guess, init_var_guess, pos_data, var_data, n, dt);
+    std::vector<float> state_vector = kalmanAlgo(init_pos_guess, init_var_guess, pos_data, var_data, process_noise_var, n, dt);
     //float final_pos = state_vector[0];
     //float final_var = state_vector[1];
     cout << "Position estimate after " << n << " iterations is " << state_vector[0] << " " << endl;

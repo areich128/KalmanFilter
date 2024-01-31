@@ -21,7 +21,7 @@ std::vector<float> initFilter(float init_pos, float init_pos_var, float init_vel
 }
 */
 
-std::vector<float> kalmanAlgo (float init_pos, float init_pos_var, float pos_data[], float sens_var_data, float n, float dt){
+std::vector<float> kalmanAlgo (float init_pos, float init_pos_var, float pos_data[], float sens_var_data, float proc_n_var, float n, float dt){
     std::vector<float> output (2, 0);
     float est_pos_var, est_velo_var, meas_pos_var, meas_pos, est_pos, est_velo;
 
@@ -39,14 +39,15 @@ std::vector<float> kalmanAlgo (float init_pos, float init_pos_var, float pos_dat
         est_pos = est_pos + (Kn * (pos_data[i] - est_pos));
         //1.3, update estimated position variance using COVARIANCE UPDATE equation
         est_pos_var = (1 - Kn) * (est_pos_var);
-        output[0] = est_pos;
-        output[1] = est_pos_var;
         cout << est_pos << "   " << est_pos_var << endl;
         //step 2: PREDICT
-        //Since we are using constant dynamics, the variables stay the same.
+        //Because there is process noise, the variance is changed a bit.
+        est_pos_var = est_pos_var + proc_n_var;
         //2.1, predict state and variance using STATE/COVARIANCE EXTRAPOLATION equations
         //est_pos = estPosUpdate(est_pos, est_velo, dt);
         //est_pos_var = estPosVarUpdate(est_pos_var, est_velo_var, dt);
+        output[0] = est_pos;
+        output[1] = est_pos_var;
     }
     return output;
 }
