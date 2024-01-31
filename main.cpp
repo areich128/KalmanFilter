@@ -11,36 +11,41 @@ using namespace std;
 
 int main (){
     int n;
-    float init_velo_guess;
+    float init_var_guess;
     float init_pos_guess;
-    float init_acc_guess;
     float dt;
 
     cout << "Number of measurements: " << endl;
     cin >> n;
 
-    float pos_meas[n], velo_meas[n];
+    float pos_data[n], pos_var_data[n];
 
     cout << "Enter " << n << " pos measurements: " << endl;
     for (int i = 0; i < n; ++i){
-        scanf("%f", &pos_meas[i]);
+        scanf("%f", &pos_data[i]);
     }
+
+    float var_data;
+    cout << "Sensor variance: " << endl;
+    cin >> var_data;
+    /*for (int i = 0; i < n; ++i){
+        var_data[i] = variance(pos_data[i], n);
+    }*/
+
     cout << "Initial pos guess: " << endl;
     cin >> init_pos_guess;
 
-    cout << "Initial velo guess: " << endl;
-    cin >> init_velo_guess;
-
-    cout << "Initial acceleration guess: " << endl;
-    cin >> init_acc_guess;
+    cout << "Initial variance guess: " << endl;
+    cin >> init_var_guess;
 
     cout << "Length of time step: " << endl;
     cin >> dt;
 
-    std::vector<float> state_vector = dynamicKalman(init_pos_guess, init_velo_guess, init_acc_guess, pos_meas, n, dt);
-
-    cout << "Position estimate after " << n << " iterations is " << state_vector[1] << " " << endl;
-    cout << "Velocity estimate after " << n << " iterations is " << state_vector[2] << " " << endl;
+    std::vector<float> state_vector = kalmanAlgo(init_pos_guess, init_var_guess, pos_data, var_data, n, dt);
+    //float final_pos = state_vector[0];
+    //float final_var = state_vector[1];
+    cout << "Position estimate after " << n << " iterations is " << state_vector[0] << " " << endl;
+    cout << "Variance estimate after " << n << " iterations is " << state_vector[1] << " " << endl;
 
     return 0;
 }
