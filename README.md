@@ -88,7 +88,14 @@ $K_n = \frac{var_{pred}}{var_{pred} + r_n}$
 
 4. **State Extrapolation Equation:** This equation updates the estimate for the variable according to the system dynamics. In the examples here this is either constant or in accordance with simple kinematics.
 
-5. **Covariance Extrapolation Equation:** This equation does the same thing as the State Extrapolation Equation, but instead of updating the estimate for the state, it updates the estimate for the *covariance* of the estimated state.
+5. **Covariance Extrapolation Equation:** This equation does the same thing as the State Extrapolation Equation, but instead of updating the estimate for the state, it updates the estimate for the *covariance* of the estimated state. With process noise added, whatever covariance is of the highest degree/constant should be += with process noise covariance.
+
+### Process Noise Details:
+
+If we use the constant dynamic system to measure something with a constant increase, for example the temperature of a pot of water heating up linearly using a small process noise covariance, we will get a lag error.
+- This means that while the Kalman Filter will eventually converge on the correct slope, the actual values will lag behind the true values by a potentially significant amount.
+
+We can fix this, even if our system dynamics are not well defined. **Increasing the process noise variance** is the key.
 
 
 
