@@ -140,7 +140,21 @@ In most cases, $\mathbf{X}^k$ will quickly converge to 0, so we only have to wor
 
 For zero-order hold sampling, we have a consistent $\Delta t$. In other words, in this case
 
-7. $x_{n+1, n} = x(t + \Delta t)$ 
+7. $x_{n+1, n} = x(t + \Delta t)$
+
+which means that
+
+8. $\mathbf{x(t + \Delta t)} = e^{\mathbf{A} \Delta t} \mathbf{x(t)} + \int_{0}^{\Delta t} e^{\mathbf{A}t} dt \mathbf{B} \mathbf{u(t)}$
+
+We notice that this equation looks similar in form to (3.), giving us
+
+9. $\mathbf{F} = e^{\mathbf{A} \Delta t}$
+
+and 
+
+10. $\mathbf{G} = \int_{0}^{\Delta t} e^{\mathbf{A}t} dt \mathbf{B}$
+
+As a result, once we solve for $\mathbf{A}$ and $\mathbf{B}$, we can simply plug this into (9.) and (10.) to solve for $\mathbf{F}$ and $\mathbf{G}$.
 
 Sources: 
 [michaelscheinfeild](https://medium.com/@michaelscheinfeild/alpha-beta-gamma-and-kalman-filter-bfd21041d940),

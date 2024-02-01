@@ -39,7 +39,7 @@ std::vector<float> kalmanAlgo (float init_pos, float init_pos_var, float pos_dat
         est_pos = est_pos + (Kn * (pos_data[i] - est_pos));
         //1.3, update estimated position variance using COVARIANCE UPDATE equation
         est_pos_var = (1 - Kn) * (est_pos_var);
-        cout << est_pos << "   " << est_pos_var << endl;
+        std::cout << est_pos << "   " << est_pos_var << std::endl;
         output[0] = est_pos;
         output[1] = est_pos_var;
         //step 2: PREDICT
