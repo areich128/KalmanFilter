@@ -110,6 +110,8 @@ We can fix this, even if our system dynamics are not well defined. **Increasing 
 
 Many systems take place in more than one dimension. In order to deal with this, we can use matrix formulas and linear algebra. As a result, this gets kind of mathy.
 
+### Space State Extrapolation Equation:
+
 We can represent the space state with two equations:
 
 1. $\mathbf{\dot x(t)} = \mathbf{Ax(t)} + \mathbf{Bu(t)}$
@@ -155,6 +157,14 @@ and
 10. $\mathbf{G} = \int_{0}^{\Delta t} e^{\mathbf{A}t} dt \mathbf{B}$
 
 As a result, once we solve for $\mathbf{A}$ and $\mathbf{B}$, we can simply plug this into (9.) and (10.) to solve for $\mathbf{F}$ and $\mathbf{G}$.
+
+### Covariance Extrapolation Equation:
+
+The general form of this equation is:
+
+1. $\mathbf{P}_{n+1,n} = \mathbf{FP}_{n,n} \mathbf{F}^T + \mathbf{Q}$
+
+where $\mathbf{P}_{n,n}$ is the covariance matrix of the state estimate, $\mathbf{P}_{n+1,n}$ is the covariance matrix of the state prediction, $\mathbf{F}$ is the state transition matrix derived in the *State Extrapolation Equation* and $\mathbf{Q}$ is the process noise matrix.
 
 Sources: 
 [michaelscheinfeild](https://medium.com/@michaelscheinfeild/alpha-beta-gamma-and-kalman-filter-bfd21041d940),

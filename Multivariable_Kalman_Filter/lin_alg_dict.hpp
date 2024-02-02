@@ -4,7 +4,13 @@
 #include <iostream>
 #include <cmath>
 
+void transform (){
 
+}
+
+void matrMultiply (){
+    
+}
 
 
 
