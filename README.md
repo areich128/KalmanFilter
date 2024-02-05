@@ -162,9 +162,9 @@ As a result, once we solve for $\mathbf{A}$ and $\mathbf{B}$, we can simply plug
 
 The general form of this equation is:
 
-1. $\mathbf{P}_{n+1,n} = \mathbf{FP}_{n,n} \mathbf{F}^T + \mathbf{Q}$
+1. $\mathbf{P_{n+1,n}} = \mathbf{FP_{n,n}} \mathbf{F}^T + \mathbf{Q}$
 
-where $\mathbf{P}_{n,n}$ is the covariance matrix of the state estimate, $\mathbf{P}_{n+1,n}$ is the covariance matrix of the state prediction, $\mathbf{F}$ is the state transition matrix derived in the *State Extrapolation Equation* and $\mathbf{Q}$ is the process noise matrix.
+where ${\mathbf{P}}_{n,n}$ is the covariance matrix of the state estimate, ${\mathbf{P}}_{n+1,n}$ is the covariance matrix of the state prediction, $\mathbf{F}$ is the state transition matrix derived in the *State Extrapolation Equation* and $\mathbf{Q}$ is the process noise matrix.
 
 Sources: 
 [michaelscheinfeild](https://medium.com/@michaelscheinfeild/alpha-beta-gamma-and-kalman-filter-bfd21041d940),
