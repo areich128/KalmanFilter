@@ -134,13 +134,13 @@ If we extend this to the whole state vector, it makes sense that
 
 5. $\mathbf{F} = e^{\mathbf{A} \Delta t}$
 
-Taking the exponential of a matrix can be done with a Taylor Polynomial. I don't really understand this part because its been a long time since I've done those, but the tutorial says that:
+Taking the exponential of a matrix can be done with a Taylor Polynomial. If we replace $\mathscr{x}$ with the matrix $\mathbf{X}$ in the series expansion, we get:
 
 6. $e^{\mathbf{X}} = \sum_{k=0}^{\infty} \frac{1}{k!} \mathbf{X}^k$
 
-In most cases, $\mathbf{X}^k$ will quickly converge to 0, so we only have to worry about the first few terms, which is nice. In addition, it is important to note that $\mathbf{X}^0 = \mathbf{I}$.
+which is kind of neat. In most cases, $\mathbf{X}^k$ will quickly converge to 0, so we only have to worry about the first few terms, which is nice. In addition, it is important to note that $\mathbf{X}^0 = \mathbf{I}$.
 
-For zero-order hold sampling, we have a consistent $\Delta t$. In other words, in this case
+For zero-order hold sampling (which is what we have in a real life rocket scenario-- sensors sample at 10 Hz on our avionics board I believe), we have a consistent $\Delta t$. In other words, in this case
 
 7. $x_{n+1, n} = x(t + \Delta t)$
 
@@ -164,7 +164,7 @@ The general form of this equation is:
 
 1. $\mathbf{P_{n+1,n}} = \mathbf{FP_{n,n}} \mathbf{F}^T + \mathbf{Q}$
 
-where ${\mathbf{P}}_{n,n}$ is the covariance matrix of the state estimate, ${\mathbf{P}}_{n+1,n}$ is the covariance matrix of the state prediction, $\mathbf{F}$ is the state transition matrix derived in the *State Extrapolation Equation* and $\mathbf{Q}$ is the process noise matrix.
+where ${\mathbf{P}_{n,n}}$ is the covariance matrix of the state estimate, ${\mathbf{P}_{n+1,n}}$ is the covariance matrix of the state prediction, $\mathbf{F}$ is the state transition matrix derived in the *State Extrapolation Equation* and $\mathbf{Q}$ is the process noise matrix.
 
 Sources: 
 [michaelscheinfeild](https://medium.com/@michaelscheinfeild/alpha-beta-gamma-and-kalman-filter-bfd21041d940),
