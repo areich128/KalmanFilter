@@ -118,9 +118,9 @@ We can represent the space state with two equations:
 
 2. $\mathbf{y(t)} = \mathbf{Cx(t)} + \mathbf{Du(t)}$
 
-in which $\mathbf{\dot x(t)} = $ the derivative of the state vector, and $\mathbf{y(t)} = $ the output vector.
+in which $\mathbf{\dot x(t)} = $ the derivative of the state vector, and $\mathbf{y(t)} = $ the output vector, and $\mathbf{x(t)}$ is the measured state vector and $\mathbf{u(t)}$ is a control input vector.
 
-In higher order systems, we can solve for $\mathbf{A}$, $\mathbf{B}$, $\mathbf{C}$, and $\mathbf{D}$ rather easily using principles from differential equations. We do all of this to be able to create the **State Extrapolation Equation** for the system. This equation takes the form of 
+In higher order systems, we can solve for $\mathbf{A}$, $\mathbf{B}$, $\mathbf{C}$, and $\mathbf{D}$  using principles from differential equations. We do all of this to be able to create the **State Extrapolation Equation** for the system. This equation takes the form of 
 
 3. $\mathbf{\hat x_{n+1, n}} = \mathbf{F \hat x_{n,n}} + \mathbf{G \hat u_{n,n}} + \mathbf{w_n}$
 
@@ -164,7 +164,19 @@ The general form of this equation is:
 
 1. $\mathbf{P_{n+1,n}} = \mathbf{FP_{n,n}} \mathbf{F}^T + \mathbf{Q}$
 
-where ${\mathbf{P}_{n,n}}$ is the covariance matrix of the state estimate, ${\mathbf{P}_{n+1,n}}$ is the covariance matrix of the state prediction, $\mathbf{F}$ is the state transition matrix derived in the *State Extrapolation Equation* and $\mathbf{Q}$ is the process noise matrix.
+where ${\mathbf{{P}_{n,n}}}$ is the covariance matrix of the state estimate, ${\mathbf{{P}_{n+1,n}}}$ is the covariance matrix of the state prediction, $\mathbf{F}$ is the state transition matrix derived in the *State Extrapolation Equation* and $\mathbf{Q}$ is the process noise matrix.
+
+### "Auxiliary Equations: Measurement vector + Uncertainties
+
+#### Measurement Vector:
+
+Generalize measurement equation:
+
+$\mathbf{z_n} = \mathbf{Hx_n} + \mathbf{v_n}$
+
+where $\mathbf{z_n}$ is the measurement vector, $\mathbf{x_n}$ is the true (hidden) system state, $\mathbf{H}$ is the observation matrix (basically what process is there between observed state and true state), and $\mathbf{v_n}$ is a random noise vector.
+
+#### Covariance Equations
 
 Sources: 
 [michaelscheinfeild](https://medium.com/@michaelscheinfeild/alpha-beta-gamma-and-kalman-filter-bfd21041d940),
