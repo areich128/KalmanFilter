@@ -32,6 +32,7 @@ std::vector<float> kalmanAlgo (float init_pos, float init_pos_var, float pos_dat
     est_pos_var = init_pos_var;
     
     for (int i = 0; i < n; ++i){
+
         //step 1: UPDATE
         //1.1, calculate kalman gain using KALMAN GAIN equation
         float Kn = kalmanGain(est_pos_var, sens_var_data);
@@ -42,6 +43,7 @@ std::vector<float> kalmanAlgo (float init_pos, float init_pos_var, float pos_dat
         std::cout << est_pos << "   " << est_pos_var << std::endl;
         output[0] = est_pos;
         output[1] = est_pos_var;
+        
         //step 2: PREDICT
         //Because there is process noise, the variance is changed a bit.
         est_pos_var = est_pos_var + proc_n_var;

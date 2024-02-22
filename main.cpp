@@ -1,15 +1,19 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+#include <string>
+#include <fstream>
 
 #include "ABG_filter/1d_kinematic.hpp"
 #include "ABG_filter/static_estimation.hpp"
 #include "1_Variable_KalmanFilter/kalmanFilter.hpp"
 #include "1_Variable_KalmanFilter/stat_dict.hpp"
+#include "1_Variable_KalmanFilter/readFile.hpp"
 
 using namespace std;
 
 int main (){
+    /*
     int n;
     float init_var_guess;
     float init_pos_guess;
@@ -28,9 +32,9 @@ int main (){
     float var_data;
     cout << "Sensor variance: " << endl;
     cin >> var_data;
-    /*for (int i = 0; i < n; ++i){
+    for (int i = 0; i < n; ++i){
         var_data[i] = variance(pos_data[i], n);
-    }*/
+    }
 
     cout << "Initial pos guess: " << endl;
     cin >> init_pos_guess;
@@ -50,6 +54,8 @@ int main (){
     //float final_var = state_vector[1];
     cout << "Position estimate after " << n << " iterations is " << state_vector[0] << " " << endl;
     cout << "Variance estimate after " << n << " iterations is " << state_vector[1] << " " << endl;
+*/
+    readFile();
 
     return 0;
 }
