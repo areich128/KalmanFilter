@@ -4,8 +4,8 @@
 
 #include "ABG_filter/1d_kinematic.hpp"
 #include "ABG_filter/static_estimation.hpp"
-#include "KalmanFilter/kalmanFilter.hpp"
-#include "KalmanFilter/stat_dict.hpp"
+#include "1_Variable_KalmanFilter/kalmanFilter.hpp"
+#include "1_Variable_KalmanFilter/stat_dict.hpp"
 
 using namespace std;
 
