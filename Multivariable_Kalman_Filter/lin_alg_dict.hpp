@@ -3,14 +3,15 @@
 
 #include <iostream>
 #include <cmath>
+// #include <Eigen/Dense>
 
-void transform (){
+//void transform (array[rows][cols]){
 
-}
+// }
 
 void matrMultiply (){
     
-}
+} 
 
 
 

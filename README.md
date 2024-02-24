@@ -176,7 +176,38 @@ $\mathbf{z_n} = \mathbf{Hx_n} + \mathbf{v_n}$
 
 where $\mathbf{z_n}$ is the measurement vector, $\mathbf{x_n}$ is the true (hidden) system state, $\mathbf{H}$ is the observation matrix (basically what process is there between observed state and true state), and $\mathbf{v_n}$ is a random noise vector.
 
-#### Covariance Equations
+### Covariance Equations
+
+All of the multivariate covariance equations are in the form
+
+1. $E(\mathbf{ee^T})$
+
+where E denotes the expected value, and $\mathbf{e}$ and $\mathbf{e^T}$ represent the error vector and the transformed error vector, respectively.
+
+This then leads to:
+
+#### Measurement Uncertainty
+
+2. $\mathbf{R_n} = E(\mathbf{v_n v_n^T})$
+
+where $\mathbf{R_n}$ is the covariance matrix of the measurement and $\mathbf{v_n}$ is the measurement error vector,
+
+#### Process Noise Uncertainty
+
+3. $\mathbf{Q_n} = E(\mathbf{w_n w_n^T})$
+
+where $\mathbf{Q_n}$ is the covariance matrix of the process noise, and $\mathbf{w_n}$ is the process noise vector, and 
+
+#### Estimation Uncertainty
+
+4. $\mathbf{P_{n,n}} = E(\mathbf{e_n e_n^T}) = E((\mathbf{x_n - \hat{x}_{n,n}})(\mathbf{x_n - \hat{x}_{n,n}}))$
+
+### State Update Equation:
+
+1. $\mathbf{\hat x_{n,n} = \hat x_{n,n-1} + K_n (z_n - H \hat x_{n,n-1})}$
+
+where the $\mathbf{\hat x}$ vectors are the estimated system state vectors at the given time, $\mathbf{K_n}$ is the Kalman Gain matrix, $\mathbf{z_n}$ is the measurement vector, and $\mathbf{H}$ is an observation matrix.
+
 
 Sources: 
 [michaelscheinfeild](https://medium.com/@michaelscheinfeild/alpha-beta-gamma-and-kalman-filter-bfd21041d940),

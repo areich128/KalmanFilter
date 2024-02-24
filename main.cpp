@@ -9,6 +9,7 @@
 #include "1_Variable_KalmanFilter/kalmanFilter.hpp"
 #include "1_Variable_KalmanFilter/stat_dict.hpp"
 #include "1_Variable_KalmanFilter/readFile.hpp"
+#include "Multivariable_Kalman_Filter/uncertainty_class.hpp"
 
 using namespace std;
 
@@ -55,7 +56,20 @@ int main (){
     cout << "Position estimate after " << n << " iterations is " << state_vector[0] << " " << endl;
     cout << "Variance estimate after " << n << " iterations is " << state_vector[1] << " " << endl;
 */
-    readFile();
+    // readFile();
+    int vector_size;
+    int error_vector[5];
+
+    cout << "Size of vector: ";
+    cin >> vector_size;
+    cout << endl;
+
+    cout << "Measurements: ";
+    for (int i = 0; i < vector_size; ++i){
+        cin >> error_vector[i];
+    }
+
+    
 
     return 0;
 }
