@@ -118,7 +118,7 @@ We can represent the space state with two equations:
 
 2. $\mathbf{y(t)} = \mathbf{Cx(t)} + \mathbf{Du(t)}$
 
-in which $\mathbf{\dot x(t)} = $ the derivative of the state vector, and $\mathbf{y(t)} = $ the output vector, and $\mathbf{x(t)}$ is the measured state vector and $\mathbf{u(t)}$ is a control input vector.
+in which $\mathbf{\dot x(t)} = $ the derivative of the state vector,  $\mathbf{y(t)} = $ the output vector,  $\mathbf{x(t)}$ is the measured state vector, and $\mathbf{u(t)}$ is a control input vector.
 
 In higher order systems, we can solve for $\mathbf{A}$, $\mathbf{B}$, $\mathbf{C}$, and $\mathbf{D}$  using principles from differential equations. We do all of this to be able to create the **State Extrapolation Equation** for the system. This equation takes the form of 
 
@@ -126,7 +126,7 @@ In higher order systems, we can solve for $\mathbf{A}$, $\mathbf{B}$, $\mathbf{C
 
 in which the hat represents estimation, $\mathbf{\hat u_{n,n}}$ represents a control input, and $\mathbf{w_n}$ represents the process noise vector.
 
-In order to find $\mathbf{F}$, we need to solve the differential equation (1.) in order to get $x_{n+1}$ in terms of $x_n$ and $\mathbf{A}$. Using separation of variables, we get the following solution:
+In order to find $\mathbf{F}$, we need to solve the differential equation (1.) in order to get $x_{n+1}$ in terms of $x_n$ and $\mathbf{A}$. Using separation of variables, we get the following solution (assuming $\mathbf{u(t)}$ is 0)
 
 4. $x_{n+1} = x_n e^{\mathbf{A} \Delta t}$
 
@@ -164,9 +164,9 @@ The general form of this equation is:
 
 1. $\mathbf{P_{n+1,n}} = \mathbf{FP_{n,n}} \mathbf{F}^T + \mathbf{Q}$
 
-where ${\mathbf{{P}_{n,n}}}$ is the covariance matrix of the state estimate, ${\mathbf{{P}_{n+1,n}}}$ is the covariance matrix of the state prediction, $\mathbf{F}$ is the state transition matrix derived in the *State Extrapolation Equation* and $\mathbf{Q}$ is the process noise matrix.
+where $\mathbf{P}_{n,n}$ is the covariance matrix of the state estimate, $\mathbf{P}_{n+1,n}$ is the covariance matrix of the state prediction, $\mathbf{F}$ is the state transition matrix derived in the *State Extrapolation Equation* and $\mathbf{Q}$ is the process noise matrix.
 
-### "Auxiliary Equations: Measurement vector + Uncertainties
+### "Auxiliary Equations": Measurement vector + Uncertainties
 
 #### Measurement Vector:
 
