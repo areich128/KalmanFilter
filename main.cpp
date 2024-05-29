@@ -38,9 +38,9 @@ int main (){
     init_pos_guess = 71;
 
     // cout << "Initial guess variance: " << endl;
-    init_var_guess = 0.1;
+    init_var_guess = 1;
 
-    float process_noise_var = 0;
+    float process_noise_var = 0.1;
     // cout << "Process noise variance: " << endl;
     // cin >> process_noise_var;
 
@@ -48,7 +48,7 @@ int main (){
     // cin >> dt;
     vector<float> pos_data = readFile();
 
-    std::vector<float> state_vector = kalmanAlgo(init_pos_guess, 0.1, pos_data, init_var_guess, 0.01, n, dt);
+    std::vector<float> state_vector = kalmanAlgo(init_pos_guess, 0.1, pos_data, init_var_guess, process_noise_var, n, dt);
     //float final_pos = state_vector[0];
     //float final_var = state_vector[1];
     // cout << "Position estimate after " << n << " iterations is " << state_vector[0] << " " << endl;

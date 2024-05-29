@@ -22,7 +22,7 @@ vector<float> readFile(){
 
     string line;
     while (getline(inputFile, line)){
-        cout << line << "------------------" << endl;
+        // cout << line << "------------------" << endl;
         double data_point;
 
         data_point = stod(line);
@@ -32,11 +32,11 @@ vector<float> readFile(){
 
     inputFile.close();
 
-    cout << "Numerical digits in the file: ";
-    for (int i = 0; i < dataset.size(); ++i){
-        cout << dataset.at(i) << " ";
-    }
-    cout << endl;
+    // cout << "Numerical digits in the file: ";
+    // for (int i = 0; i < dataset.size(); ++i){
+    //     cout << dataset.at(i) << " ";
+    // }
+    // cout << endl;
 
     return dataset;
 }
