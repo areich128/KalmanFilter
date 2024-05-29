@@ -14,60 +14,58 @@
 using namespace std;
 
 int main (){
-    /*
-    int n;
+    
+    const int n = 90;
     float init_var_guess;
     float init_pos_guess;
-    float dt;
+    float dt = 1;
 
-    cout << "Number of measurements: " << endl;
-    cin >> n;
+    // float pos_data[n], pos_var_data[n];
 
-    float pos_data[n], pos_var_data[n];
+    // cout << "Enter " << n << " pos measurements: " << endl;
+    // for (int i = 0; i < n; ++i){
+    //     scanf("%f", &pos_data[i]);
+    // }
 
-    cout << "Enter " << n << " pos measurements: " << endl;
-    for (int i = 0; i < n; ++i){
-        scanf("%f", &pos_data[i]);
-    }
+    // float var_data;
+    // cout << "Sensor variance: " << endl;
+    // cin >> var_data;
+    // for (int i = 0; i < n; ++i){
+    //     var_data[i] = variance(pos_data[i], n);
+    // }
 
-    float var_data;
-    cout << "Sensor variance: " << endl;
-    cin >> var_data;
-    for (int i = 0; i < n; ++i){
-        var_data[i] = variance(pos_data[i], n);
-    }
+    // cout << "Initial pos guess: " << endl;
+    init_pos_guess = 71;
 
-    cout << "Initial pos guess: " << endl;
-    cin >> init_pos_guess;
+    // cout << "Initial guess variance: " << endl;
+    init_var_guess = 0.1;
 
-    cout << "Initial guess variance: " << endl;
-    cin >> init_var_guess;
+    float process_noise_var = 0;
+    // cout << "Process noise variance: " << endl;
+    // cin >> process_noise_var;
 
-    float process_noise_var;
-    cout << "Process noise variance: " << endl;
-    cin >> process_noise_var;
+    // cout << "Length of time step: " << endl;
+    // cin >> dt;
+    vector<float> pos_data = readFile();
 
-    cout << "Length of time step: " << endl;
-    cin >> dt;
-
-    std::vector<float> state_vector = kalmanAlgo(init_pos_guess, init_var_guess, pos_data, var_data, process_noise_var, n, dt);
+    std::vector<float> state_vector = kalmanAlgo(init_pos_guess, 0.1, pos_data, init_var_guess, 0.01, n, dt);
     //float final_pos = state_vector[0];
     //float final_var = state_vector[1];
-    cout << "Position estimate after " << n << " iterations is " << state_vector[0] << " " << endl;
-    cout << "Variance estimate after " << n << " iterations is " << state_vector[1] << " " << endl;
-*/
-    // readFile();
-    int vector_size;
-    int error_vector[5];
+    // cout << "Position estimate after " << n << " iterations is " << state_vector[0] << " " << endl;
+    // cout << "Variance estimate after " << n << " iterations is " << state_vector[1] << " " << endl;
+    writeFile(state_vector);
+    //readFile();
+    // int vector_size;
+    // int error_vector[5];
 
-    cout << "Size of vector: ";
-    cin >> vector_size;
-    cout << endl;
+    // cout << "Size of vector: ";
+    // cin >> vector_size;
+    // cout << endl;
 
-    cout << "Measurements: ";
-    for (int i = 0; i < vector_size; ++i){
-        cin >> error_vector[i];
-    }
+    // cout << "Measurements: ";
+    // for (int i = 0; i < vector_size; ++i){
+    //     cin >> error_vector[i];
+    // }
 
     
 

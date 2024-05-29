@@ -21,8 +21,8 @@ std::vector<float> initFilter(float init_pos, float init_pos_var, float init_vel
 }
 */
 
-std::vector<float> kalmanAlgo (float init_pos, float init_pos_var, float pos_data[], float sens_var_data, float proc_n_var, float n, float dt){
-    std::vector<float> output (2, 0);
+std::vector<float> kalmanAlgo (float init_pos, float init_pos_var, vector<float> pos_data, float sens_var_data, float proc_n_var, float n, float dt){
+    std::vector<float> output;
     float est_pos_var, est_velo_var, meas_pos_var, meas_pos, est_pos, est_velo;
 
     //step 0: INITIALIZE kalman algorithm here
@@ -37,12 +37,12 @@ std::vector<float> kalmanAlgo (float init_pos, float init_pos_var, float pos_dat
         //1.1, calculate kalman gain using KALMAN GAIN equation
         float Kn = kalmanGain(est_pos_var, sens_var_data);
         //1.2, update estimated state using STATE UPDATE equation
-        est_pos = est_pos + (Kn * (pos_data[i] - est_pos));
+        est_pos = est_pos + (Kn * (pos_data.at(i) - est_pos));
         //1.3, update estimated position variance using COVARIANCE UPDATE equation
         est_pos_var = (1 - Kn) * (est_pos_var);
         std::cout << est_pos << "   " << est_pos_var << std::endl;
-        output[0] = est_pos;
-        output[1] = est_pos_var;
+        output.push_back(est_pos);
+        // output[1] = est_pos_var;
         
         //step 2: PREDICT
         //Because there is process noise, the variance is changed a bit.

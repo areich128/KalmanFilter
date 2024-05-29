@@ -7,34 +7,55 @@
 
 using namespace std;
 
-int readFile (){
+vector<float> readFile(){
     
-    ifstream inputFile("datafile.txt");
+    ifstream inputFile("output.txt");
 
-    if (inputFile.is_open()){
-        cerr << "Error opening file" << endl;
-        return 1;
+    if (!inputFile.is_open()){
+        cout << "Error opening file" << endl;
+        vector<float> error;
+        error.push_back(0);
+        return error;
     }
 
-    vector<int> dataset;
+    vector<float> dataset;
 
-    char character;
-    while (inputFile.get(character)){
-        if (isdigit(character)){
-            dataset.push_back(character - '0');
-        }
+    string line;
+    while (getline(inputFile, line)){
+        cout << line << "------------------" << endl;
+        double data_point;
 
+        data_point = stod(line);
+
+        dataset.push_back(data_point);
     }
 
     inputFile.close();
 
     cout << "Numerical digits in the file: ";
-    for (int digit : dataset){
-        cout << digit << " ";
+    for (int i = 0; i < dataset.size(); ++i){
+        cout << dataset.at(i) << " ";
     }
     cout << endl;
 
-    return 0;
+    return dataset;
+}
+
+void writeFile(vector<float> newdata){
+    ofstream file_out("filtered.txt");
+
+    if (!file_out.is_open()){
+        cout << "Error opening file" << endl;
+        return;
+    }
+
+    for (int i = 0; i < newdata.size(); ++i){
+        file_out << newdata.at(i) << endl;
+    }
+
+    file_out.close();
+
+    return;
 }
 
 #endif
