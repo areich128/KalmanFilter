@@ -32,6 +32,34 @@ void uniFilter::setDt(float time){_dt = time;}
 float uniFilter::getDt(){return _dt;}
 
 
-bool uniFilter::loadData(string filename){}
-vector<float> uniFilter::filter(){}
-float uniFilter::findKn(){}
+bool uniFilter::loadData(string filename){
+    ifstream inputFile(filename);
+
+    if (!inputFile.is_open()){
+        cout << "Error opening file" << endl;
+        return 0;
+    }
+
+    string line;
+    while (getline(inputFile, line)){
+        // cout << line << "------------------" << endl;
+        double data_point;
+
+        data_point = stod(line);
+
+        _dataset.push_back(data_point);
+    }
+    inputFile.close();
+
+    return 1;
+}
+
+vector<float> uniFilter::filter(){
+    
+
+}
+
+float uniFilter::findKn(float predicted_variance, float measured_variance){
+    float Kn = predicted_variance / (predicted_variance + measured_variance);
+    return Kn;
+}
